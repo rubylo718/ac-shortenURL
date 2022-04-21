@@ -1,5 +1,5 @@
-import express from "express"
-import mongoose from "mongoose"
+import express from 'express'
+import mongoose from 'mongoose'
 
 const app = express()
 const port = 3000
@@ -14,9 +14,8 @@ db.once('open', () => {
   console.log('mongodb good good connected!')
 })
 
-
-app.get('/', (req, res)=> {
-  res.send(`shortURL initial`)
+app.get('/', (req, res) => {
+  res.send('shortURL initial')
 })
 
 app.listen(port, () => {
