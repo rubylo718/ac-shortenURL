@@ -26,12 +26,32 @@ app.get('/', (req, res) => {
   res.render('index')
 })
 
+// user enter an url and press the button
 app.post('/', (req, res) => {
-  const originalURL = req.body.original_url
-  const urlDigit = generateShortURL(DIGIT_NUM)
-  console.log(`original ${originalURL}, short ${urlDigit}`)
-  return urlPairs.create({ original_url: originalURL, short_url: urlDigit })
-    .then(() => res.render('result', { shortURL: urlDigit }))
+  const originalURL = req.body.urlInput
+  // check if the original url existed in db
+  urlPairs.findOne({ original_url: originalURL })
+    .then(result => {
+      // if not exist: generate random digits and add new item in db
+      // if exist: return the find result
+      if (!result) {
+        const urlDigit = generateShortURL(DIGIT_NUM)
+        return urlPairs.create({ original_url: originalURL, short_url: urlDigit })
+      } else {  
+        return result
+      }
+    })
+    .then(result => res.render('result', { shortURL: result.short_url }))
+    .catch(error => console.log(error))
+})
+
+// request the short url and direct to the original url
+app.get('/:short', (req, res) => {
+  const short = req.params.short
+  urlPairs.findOne({ short_url: short })
+    .then(result => {
+      if (result) { return res.redirect(result.original_url) } else (res.render('index'))
+    })
     .catch(error => console.log(error))
 })
 

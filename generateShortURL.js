@@ -15,5 +15,4 @@ function sample (array) {
   return array[index]
 }
 
-// console.log(generateShortURL(5))
 export { generateShortURL }
