@@ -1,9 +1,18 @@
-<div class="container my-3">
-<h3>Your short url is: 
-  <a href="{{{ origin }}}/{{{ shortURL }}}" target="_blank">{{{ origin }}}/{{{ shortURL }}}</a>
-</h3>
-<div class="container my-1 d-inline">
-  <button type="button" class="btn btn-outline-primary mx-0">Copy</button>
-  <a class="btn btn-outline-primary mx-2" href="/" role="button">Back to Create Another One</a>
+<div class="container my-3" style="text-align: center;">
+  <h4>Your short url is: 
+    <a id="short-URL" href="{{{ origin }}}/{{{ shortURL }}}" target="_blank">{{{ origin }}}/{{{ shortURL }}}</a>
+  </h4>
+  <div class="container my-1 d-inline">
+    <button type="button" class="btn btn-outline-secondary mx-0" onclick="copy()">Copy to the Clipboard</button> 
+    <a class="btn btn-outline-primary mx-2" href="/" role="button">Create Another One</a>
+  </div>
 </div>
-</div>
+
+<script>
+  function copy() {
+    const copy = document.querySelector('#short-URL').innerText
+    navigator.clipboard.writeText(copy)
+    .then( () => alert('Copied :)'))
+    .catch(error => alert('Copy Failed :('))
+  }
+</script>
