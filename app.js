@@ -5,7 +5,7 @@ import urlPairs from './models/url.js'
 import { generateShortURL } from './generateShortURL.js'
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 const DIGIT_NUM = 5
 
 mongoose.connect(process.env.MONGODB_URI_shortURL)
@@ -37,11 +37,11 @@ app.post('/', (req, res) => {
       if (!result) {
         const urlDigit = generateShortURL(DIGIT_NUM)
         return urlPairs.create({ original_url: originalURL, short_url: urlDigit })
-      } else {  
+      } else {
         return result
       }
     })
-    .then(result => res.render('result', { shortURL: result.short_url }))
+    .then(result => res.render('result', { origin: req.headers.origin, shortURL: result.short_url }))
     .catch(error => console.log(error))
 })
 
