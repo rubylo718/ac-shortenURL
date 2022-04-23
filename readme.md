@@ -2,6 +2,9 @@
 
 This a mastery assignment (指標作業) of AlphaCamp Term 2-3 (Back-end).
 
+This app can run at https://hidden-hollows-30069.herokuapp.com or localhost.
+
+<br>
 
 ## Target
 
@@ -17,18 +20,21 @@ Overall abilities to build a Web App, including:
 
 5. Publish the project to Heroku and connect with MongoDB cloud service.
 
+<br>
+
 ## User Story
 
-User can input an URL in the form, press the button, and get a shortened (sometimes not really short due to the domain name length) URL.
+- User can input an URL in the form, press the button, and get a shortened URL (not really short due to the Heroku domain name).
 
-The format of the short URL is 5 digits of random alphanumeric characters.
+- The format of the short URL is 5 digits of random alphanumeric characters.
 
-When entering the same URL, User will get the same shortened URL.
+- When entering the same URL, User will get the same shortened URL.
 
-User can link to the original site using the short URL while the server is running.
+- User can link to the original site using the short URL.
 
-User can copy the shortened URL to clipboard by clicking a button.
+- User can copy the shortened URL to clipboard by clicking a button.
 
+<br>
 
 ## Getting Started
 
@@ -40,6 +46,8 @@ npm run start
 
 Mongoose environment variable name: MONGODB_URI_shortURL
 
+<br>
+
 ## Packages
 
 express: 4.17.3
@@ -48,9 +56,13 @@ express-handlebars: 6.0.5
 
 mongoose: 6.3.0
 
+<br>
+
 ## Author
 
 Ruby Lo
+
+<br>
 
 ## Submitted Date
 
