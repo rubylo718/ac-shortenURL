@@ -38,6 +38,12 @@ Overall abilities to build a Web App, including:
 
 ## Getting Started
 
+You need Express to run the app on the local machine (localhost).
+
+```
+npm i express
+```
+
 Run the App:
 
 ```
@@ -66,4 +72,4 @@ Ruby Lo
 
 ## Submitted Date
 
-Apr. 23, 2022
+Apr. 26, 2022
